@@ -1,0 +1,22 @@
+//存放所有需要权限的异步路由
+//administration
+export default [
+    {
+        path:"/attendance",
+        name:"Attendance",
+        meta:{auth:["boss","adminstration"]},
+        component:()=>import("@/views/AuthView/AuthAttendance")
+    },
+    {
+        path:"/salary",
+        name:"Salary",
+        meta:{auth:["boss","finance"]},
+        component:()=>import("@/views/AuthView/AuthSalary")
+    },
+    {
+        path:"*",
+        name:"NotFound",
+        meta:{auth:["boss","finance","adminstration","user"]},
+        component:()=>import("@/views/NotFound.vue")
+      }
+]
